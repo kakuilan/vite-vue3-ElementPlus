@@ -1,16 +1,27 @@
 import myFun from '../../utils/myFun'
 const auth = {
   state: {
+    logined: false,
     avatar: '',
     uid: 0,
     nickName: '',
     accessToken: ''
   },
-  getters: {},
+  getters: {
+    logined: (state) => state.logined
+  },
+  //mutations的方法名统一大写
   mutations: {
-    SET_ACCESS_TOKEN(state, accessToken, ttl) {
+    //使用 commit('SET_ACCESS_TOKEN', [accessToken, ttl])
+    SET_ACCESS_TOKEN: (state, [accessToken, ttl]) => {
       state.accessToken = accessToken
-      myFun.setAccessToken(accessToken, ttl)
+      if (accessToken !== '') {
+        myFun.setAccessToken(accessToken, ttl)
+        state.logined = true
+      } else {
+        myFun.delAccessToken()
+        state.logined = false
+      }
     }
   },
   actions: {}

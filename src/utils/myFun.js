@@ -29,6 +29,13 @@ function getCache() {
   return lscache
 }
 
+/**
+ * 清空lscache缓存
+ */
+function clearCache() {
+  lscache.flush()
+}
+
 // 显示loading
 function showLoading() {
   return ElLoading.service({
@@ -66,11 +73,20 @@ const getAccessToken = function () {
   return res
 }
 
+/**
+ * 删除用户的accessToken令牌
+ */
+const delAccessToken = function () {
+  lscache.remove('accessToken')
+}
+
 export default {
   getBaseApiUrl,
   getCache,
+  clearCache,
   showLoading,
   debounce,
   setAccessToken,
-  getAccessToken
+  getAccessToken,
+  delAccessToken
 }
