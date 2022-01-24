@@ -4,10 +4,7 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        'plugin:vue/essential',
         'plugin:vue/vue3-recommended',
-        'eslint:recommended',
-        'prettier',
         '@vue/prettier',
         'plugin:prettier/recommended'
     ],

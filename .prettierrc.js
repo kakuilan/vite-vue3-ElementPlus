@@ -11,8 +11,6 @@ module.exports = {
     singleQuote: true,
     // 大括号内的首尾需要空格
     bracketSpacing: true,
-    // 换行符使用 lf
-    endOfLine: 'lf',
     // 去除对象最末尾元素跟随的逗号
     trailingComma: 'none',
 }
