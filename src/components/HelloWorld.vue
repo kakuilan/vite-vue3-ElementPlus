@@ -1,11 +1,17 @@
 <script setup>
 import { ref } from 'vue'
+import ApiTest from '../api/test'
 
+// eslint-disable-next-line no-undef
 defineProps({
   msg: String
 })
 
 const count = ref(0)
+
+ApiTest.get({ a: 'a', b: 'b' }).then((res) => {})
+ApiTest.post({ a: 'a', b: 'b' }).then((res) => {})
+ApiTest.notfound({ a: 'a', b: 'b' }).then((res) => {})
 </script>
 
 <template>

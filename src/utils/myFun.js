@@ -29,8 +29,8 @@ function getCache() {
   return lscache
 }
 
-// loading显示
-function Loading() {
+// 显示loading
+function showLoading() {
   return ElLoading.service({
     lock: false,
     text: '加载中···',
@@ -48,9 +48,29 @@ const debounce = (function () {
   }
 })()
 
+/**
+ * 设置用户accessToken令牌到浏览器存储
+ * @param {string} token 用户令牌
+ * @param {int} ttl 有效期,秒
+ */
+const setAccessToken = function (token, ttl) {
+  lscache.set('accessToken', token, parseInt(ttl, 10))
+}
+
+/**
+ * 获取用户的accessToken令牌
+ */
+const getAccessToken = function () {
+  let res = lscache.get('accessToken')
+  if (!res) res = ''
+  return res
+}
+
 export default {
   getBaseApiUrl,
   getCache,
-  Loading,
-  debounce
+  showLoading,
+  debounce,
+  setAccessToken,
+  getAccessToken
 }
