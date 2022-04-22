@@ -9,9 +9,9 @@ defineProps({
 
 const count = ref(0)
 
-ApiTest.get({ a: 'a', b: 'b' }).then((res) => {})
-ApiTest.post({ a: 'a', b: 'b' }).then((res) => {})
-ApiTest.notfound({ a: 'a', b: 'b' }).then((res) => {})
+// ApiTest.get({ a: 'a', b: 'b' }).then((res) => {})
+// ApiTest.post({ a: 'a', b: 'b' }).then((res) => {})
+// ApiTest.notfound({ a: 'a', b: 'b' }).then((res) => {})
 </script>
 
 <template>

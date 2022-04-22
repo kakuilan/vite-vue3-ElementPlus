@@ -30,5 +30,13 @@ export default defineConfig({
       // eslint-disable-next-line no-undef
       views: path.resolve(__dirname, 'src/views')
     }
+  },
+  // 反向代理
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3000',
+      changeOrigin: true,
+      rewrite: (path) => path.replace(/^\/api/, '')
+    }
   }
 })
